@@ -4,13 +4,16 @@ import {
   BrowserRouter,
   Routes,
   Route,
-} from "react-router-dom";
+} from 'react-router-dom';
+import { worker } from './mocks/browser';
 
 import App from './App'
 import Home from './pages/Home';
 import Report from './pages/report';
 import ReportOverview from './pages/report/Overview';
-import './index.css'
+import './index.scss';
+
+worker.start();
 
 ReactDOM.createRoot(document.getElementById('app')).render(
   <React.StrictMode>
