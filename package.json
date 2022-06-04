@@ -1,5 +1,5 @@
 {
-  "name": "table-and-charts",
+  "name": "ad-network-report",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.0-beta1",
+    "chart.js": "^3.8.0",
     "react": "^18.0.0",
+    "react-chartjs-2": "^4.1.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.3.0"
   },
