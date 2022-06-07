@@ -6,11 +6,9 @@
   "configurations": [
     {
       "type": "pwa-chrome",
-      "request": "launch",
-      "name": "Launch Chromium against localhost on MacOS",
-      "url": "http://localhost:3000",
-      "runtimeExecutable": "/Applications/Chromium.app/Contents/MacOS/Chromium",
-      "webRoot": "${workspaceFolder}"
+      "request": "attach",
+      "name": "Attach to Chromium on MacOS",
+      "port": 9222
     }
   ]
 }
