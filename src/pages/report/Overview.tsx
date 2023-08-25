@@ -2,8 +2,36 @@ import { useEffect, useState } from 'react';
 import Table from '@/components/Table';
 import ChartWrapper from '@/components/ChartWrapper';
 
+export interface NetworksType {
+  data: {
+    [key : string]: {
+      Applovin: {
+        spend: number
+        daily_revenue: number
+      }
+      Facebook: {
+        spend: number
+        daily_revenue: number
+      }
+      GoogleAds: {
+        spend: number
+        daily_revenue: number
+      }
+    }
+    Total:{
+      Facebook: {
+        spend: number
+      },
+      total: {
+        spend: number;
+        installs: number;
+      };
+    }
+  }
+}
+
 function Overview() {
-  const [networks, setNetworks] = useState(null);
+  const [networks, setNetworks] = useState<NetworksType["data"] | null>(null);
 
   useEffect(() => {
     fetch('/networks')
@@ -13,7 +41,7 @@ function Overview() {
         }
       })
       .then((jsonData) => {
-        const { data } = jsonData;
+        const { data }: NetworksType = jsonData;
         setNetworks(data);
       });
   }, []);
@@ -21,7 +49,7 @@ function Overview() {
   return (
     <>
       <h3>Network</h3>
-      <Table data={networks?.Total} />
+      {networks && <Table data={networks.Total} />}
       <h3>Daily Revenue</h3>
       <div className="form-check form-switch">
         <input

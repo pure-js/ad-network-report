@@ -9,6 +9,8 @@ import {
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
+import type { NetworksType } from '@/pages/report/Overview';
+
 Chart.register(
   LineElement,
   PointElement,
@@ -27,11 +29,11 @@ const options = {
   },
 };
 
-function ChartWrapper({ data }) {
+function ChartWrapper({ data }: NetworksType) {
   const labels = Object.keys(data).slice(0, -1);
-  let ApplovinLabel = [];
-  let FacebookLabel = [];
-  let GoogleAdsLabel = [];
+  const ApplovinLabel = [] as number[];
+  const FacebookLabel = [] as number[];
+  const GoogleAdsLabel = [] as number[];
   labels.map((date) => {
     ApplovinLabel.push(data[date].Applovin.daily_revenue);
     FacebookLabel.push(data[date].Facebook.daily_revenue);
