@@ -5,9 +5,6 @@ import mockNetworks from './networks.json';
 
 export const handlers = [
   rest.get('/networks', (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json(mockNetworks),
-    )
+    return res(ctx.status(200), ctx.json(mockNetworks));
   }),
-]
+];

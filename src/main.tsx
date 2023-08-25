@@ -1,21 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { worker } from './mocks/browser';
 
-import App from './App'
+import App from './App';
 import Home from './pages/Home';
 import Report from './pages/report';
 import ReportOverview from './pages/report/Overview';
 import './index.scss';
 
 worker.start();
-
-ReactDOM.createRoot(document.getElementById('app')).render(
+const domNode = document.getElementById('app')!;
+ReactDOM.createRoot(domNode).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
@@ -27,5 +23,5 @@ ReactDOM.createRoot(document.getElementById('app')).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

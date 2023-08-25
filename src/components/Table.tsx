@@ -1,4 +1,13 @@
-function Table({ data }) {
+interface TableProps {
+  data: {
+    total: {
+      spend: number;
+      installs: number;
+    }
+  };
+}
+
+function Table({ data }: TableProps) {
   return (
     <table className="table table-striped">
       <thead>
@@ -30,23 +39,23 @@ function Table({ data }) {
         </tr>
         <tr>
           <th scope="row">3</th>
-          <td colSpan="2">Larry the Bird</td>
+          <td colSpan={2}>Larry the Bird</td>
           <td>@twitter</td>
         </tr>
       </tbody>
-      { data?.total && (
+      {data?.total && (
         <tfoot>
           <tr>
             <th scope="row">Total</th>
-            <td>{ data.total.spend }</td>
+            <td>{data.total.spend}</td>
             <td>CPI ?</td>
             <td>LTV90 ?</td>
-            <td>{ data.total.installs }</td>
+            <td>{data.total.installs}</td>
           </tr>
         </tfoot>
-      ) }
+      )}
     </table>
-  )
+  );
 }
 
 export default Table;
