@@ -14,8 +14,8 @@ import ReportOverview from './pages/report/Overview';
 import './index.scss';
 
 worker.start();
-
-ReactDOM.createRoot(document.getElementById('app')).render(
+const domNode = document.getElementById('app')!;
+ReactDOM.createRoot(domNode).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>

@@ -1,4 +1,13 @@
-function Table({ data }) {
+interface TableProps {
+  data: {
+    total: {
+      spend: number;
+      installs: number;
+    };
+  }
+}
+
+function Table({ data }: TableProps) {
   return (
     <table className="table table-striped">
       <thead>
@@ -30,7 +39,7 @@ function Table({ data }) {
         </tr>
         <tr>
           <th scope="row">3</th>
-          <td colSpan="2">Larry the Bird</td>
+          <td colSpan={2}>Larry the Bird</td>
           <td>@twitter</td>
         </tr>
       </tbody>
