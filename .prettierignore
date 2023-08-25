@@ -1,0 +1,13 @@
+# Ignore artifacts:
+build
+dist
+coverage
+
+# PNPM lock file
+pnpm-lock.yaml
+
+# TypeScript config
+tsconfig.json
+
+# MSW
+public/mockServiceWorker.js

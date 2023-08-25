@@ -4,7 +4,7 @@ interface TableProps {
       spend: number;
       installs: number;
     };
-  }
+  };
 }
 
 function Table({ data }: TableProps) {
@@ -43,19 +43,19 @@ function Table({ data }: TableProps) {
           <td>@twitter</td>
         </tr>
       </tbody>
-      { data?.total && (
+      {data?.total && (
         <tfoot>
           <tr>
             <th scope="row">Total</th>
-            <td>{ data.total.spend }</td>
+            <td>{data.total.spend}</td>
             <td>CPI ?</td>
             <td>LTV90 ?</td>
-            <td>{ data.total.installs }</td>
+            <td>{data.total.installs}</td>
           </tr>
         </tfoot>
-      ) }
+      )}
     </table>
-  )
+  );
 }
 
 export default Table;

@@ -27,7 +27,6 @@ const options = {
   },
 };
 
-
 function ChartWrapper({ data }) {
   const labels = Object.keys(data).slice(0, -1);
   let ApplovinLabel = [];
@@ -60,9 +59,7 @@ function ChartWrapper({ data }) {
     ],
   };
 
-  return (
-    <Line options={options} data={chartData} />
-  )
+  return <Line options={options} data={chartData} />;
 }
 
 export default ChartWrapper;

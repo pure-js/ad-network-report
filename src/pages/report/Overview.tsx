@@ -16,7 +16,7 @@ function Overview() {
         const { data } = jsonData;
         setNetworks(data);
       });
-  }, [])
+  }, []);
 
   return (
     <>
@@ -24,12 +24,19 @@ function Overview() {
       <Table data={networks?.Total} />
       <h3>Daily Revenue</h3>
       <div className="form-check form-switch">
-        <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Default switch checkbox input</label>
+        <input
+          className="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="flexSwitchCheckDefault"
+        />
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          Default switch checkbox input
+        </label>
       </div>
-      { networks && (<ChartWrapper data={networks} />) }
+      {networks && <ChartWrapper data={networks} />}
     </>
-  )
+  );
 }
 
 export default Overview;

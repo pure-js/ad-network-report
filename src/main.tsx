@@ -1,13 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { worker } from './mocks/browser';
 
-import App from './App'
+import App from './App';
 import Home from './pages/Home';
 import Report from './pages/report';
 import ReportOverview from './pages/report/Overview';
@@ -27,5 +23,5 @@ ReactDOM.createRoot(domNode).render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

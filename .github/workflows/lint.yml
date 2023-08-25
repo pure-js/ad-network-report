@@ -4,7 +4,6 @@ on:
   push:
 
 jobs:
-
   eslint:
     runs-on: ubuntu-latest
     strategy:
