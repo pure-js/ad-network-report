@@ -4,7 +4,7 @@ import ChartWrapper from '@/components/ChartWrapper';
 
 export interface NetworksType {
   data: {
-    [key : string]: {
+    [key : string] : {
       Applovin: {
         spend: number
         daily_revenue: number
@@ -17,11 +17,6 @@ export interface NetworksType {
         spend: number
         daily_revenue: number
       }
-    }
-    Total:{
-      Facebook: {
-        spend: number
-      },
       total: {
         spend: number;
         installs: number;

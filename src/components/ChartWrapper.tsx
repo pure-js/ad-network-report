@@ -20,15 +20,6 @@ Chart.register(
   Tooltip,
 );
 
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      position: 'top',
-    },
-  },
-};
-
 function ChartWrapper({ data }: NetworksType) {
   const labels = Object.keys(data).slice(0, -1);
   const ApplovinLabel = [] as number[];
@@ -61,7 +52,7 @@ function ChartWrapper({ data }: NetworksType) {
     ],
   };
 
-  return <Line options={options} data={chartData} />;
+  return <Line data={chartData} />;
 }
 
 export default ChartWrapper;
