@@ -3,7 +3,7 @@ interface TableProps {
     total: {
       spend: number;
       installs: number;
-    }
+    };
   };
 }
 

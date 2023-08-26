@@ -4,29 +4,29 @@ import ChartWrapper from '@/components/ChartWrapper';
 
 export interface NetworksType {
   data: {
-    [key : string] : {
+    [key: string]: {
       Applovin: {
-        spend: number
-        daily_revenue: number
-      }
+        spend: number;
+        daily_revenue: number;
+      };
       Facebook: {
-        spend: number
-        daily_revenue: number
-      }
+        spend: number;
+        daily_revenue: number;
+      };
       GoogleAds: {
-        spend: number
-        daily_revenue: number
-      }
+        spend: number;
+        daily_revenue: number;
+      };
       total: {
         spend: number;
         installs: number;
       };
-    }
-  }
+    };
+  };
 }
 
 function Overview() {
-  const [networks, setNetworks] = useState<NetworksType["data"] | null>(null);
+  const [networks, setNetworks] = useState<NetworksType['data'] | null>(null);
 
   useEffect(() => {
     fetch('/networks')
