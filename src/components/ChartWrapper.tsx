@@ -20,7 +20,7 @@ Chart.register(
   Tooltip,
 );
 
-function ChartWrapper({ data }: NetworksType) {
+function ChartWrapper({ data }: { data: NetworksType }) {
   const labels = Object.keys(data).slice(0, -1);
   const ApplovinLabel = [] as number[];
   const FacebookLabel = [] as number[];

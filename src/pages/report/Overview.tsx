@@ -1,50 +1,61 @@
-import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+
 import Table from '@/components/Table';
 import ChartWrapper from '@/components/ChartWrapper';
 
 export interface NetworksType {
-  data: {
-    [key : string] : {
-      Applovin: {
-        spend: number
-        daily_revenue: number
-      }
-      Facebook: {
-        spend: number
-        daily_revenue: number
-      }
-      GoogleAds: {
-        spend: number
-        daily_revenue: number
-      }
-      total: {
-        spend: number;
-        installs: number;
-      };
-    }
+  [key: string]: {
+    Applovin: {
+      spend: number;
+      daily_revenue: number;
+    };
+    Facebook: {
+      spend: number;
+      daily_revenue: number;
+    };
+    GoogleAds: {
+      spend: number;
+      daily_revenue: number;
+    };
+    total: {
+      spend: number;
+      installs: number;
+    };
+  };
+}
+
+async function fetchNetworks(): Promise<NetworksType | undefined> {
+  try {
+    const response = await fetch('/networks');
+    const { data } = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
   }
 }
 
 function Overview() {
-  const [networks, setNetworks] = useState<NetworksType["data"] | null>(null);
+  const { isLoading, isError, data, error } = useQuery<
+    unknown,
+    unknown,
+    NetworksType
+  >({
+    // queryKey: ['networks'],
+    queryFn: fetchNetworks,
+  });
 
-  useEffect(() => {
-    fetch('/networks')
-      .then((res) => {
-        if (res) {
-          return res.json();
-        }
-      })
-      .then((jsonData) => {
-        const { data }: NetworksType = jsonData;
-        setNetworks(data);
-      });
-  }, []);
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError && error instanceof Error) {
+    return <span>Error: {error.message}</span>;
+  }
 
   return (
     <>
       <h3>Network</h3>
-      {networks && <Table data={networks.Total} />}
+      {data && <Table data={data.Total} />}
       <h3>Daily Revenue</h3>
       <div className="form-check form-switch">
         <input
@@ -57,7 +68,7 @@ function Overview() {
           Default switch checkbox input
         </label>
       </div>
-      {networks && <ChartWrapper data={networks} />}
+      {data && <ChartWrapper data={data} />}
     </>
   );
 }

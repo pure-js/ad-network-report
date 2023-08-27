@@ -6,6 +6,7 @@ extends:
   - plugin:@typescript-eslint/recommended
   - plugin:react/recommended
   - plugin:react/jsx-runtime
+  - plugin:@tanstack/eslint-plugin-query/recommended
   - prettier
 parser: '@typescript-eslint/parser'
 parserOptions:
