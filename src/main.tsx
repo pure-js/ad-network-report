@@ -18,18 +18,18 @@ const queryClient = new QueryClient();
 const domNode = document.getElementById('app')!;
 ReactDOM.createRoot(domNode).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <QueryClientProvider client={queryClient}>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
             <Route path="report" element={<Report />}>
               <Route path="overview" element={<ReportOverview />} />
             </Route>
           </Route>
-          <ReactQueryDevtools initialIsOpen={false} />
-        </QueryClientProvider>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+      <ReactQueryDevtools initialIsOpen={false} />
+    </QueryClientProvider>
   </React.StrictMode>,
 );
