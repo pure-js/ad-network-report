@@ -11,3 +11,6 @@ tsconfig.json
 
 # MSW
 public/mockServiceWorker.js
+
+# Bundle Statistic
+stat.json
