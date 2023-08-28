@@ -1,7 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
+import { Logger } from 'tslog';
 
 import Table from '@/components/Table';
 import ChartWrapper from '@/components/ChartWrapper';
+
+const log = new Logger();
 
 export interface NetworksType {
   [key: string]: {
@@ -30,7 +33,7 @@ async function fetchNetworks(): Promise<NetworksType | undefined> {
     const { data } = await response.json();
     return data;
   } catch (error) {
-    console.error(error);
+    log.error(error);
   }
 }
 
