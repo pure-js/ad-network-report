@@ -14,7 +14,7 @@ import ReportOverview from './pages/report/Overview';
 
 worker.start({
   serviceWorker: {
-    url: '/ad-network-report/mockServiceWorker.js',
+    url: `${import.meta.env.BASE_URL}mockServiceWorker.js`,
   },
 });
 const queryClient = new QueryClient();
@@ -23,7 +23,7 @@ const domNode = document.getElementById('app')!;
 ReactDOM.createRoot(domNode).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter basename="/ad-network-report">
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
