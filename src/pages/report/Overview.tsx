@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { Logger } from 'tslog';
 
-import Table from '@/components/Table';
 import ChartWrapper from '@/components/ChartWrapper';
+import Table from '@/components/Table';
 
 const log = new Logger();
 
